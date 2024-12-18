@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignId('reader_id')->constrained('readers');
             $table->date('borrow_date');
             $table->date('return_date')->nullable();
-            $table->timestamps();
+            $table->timestamps();   
+            $table->foreign('reader_id')->references('id')->on('readers');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
